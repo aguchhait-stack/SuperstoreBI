@@ -1,6 +1,7 @@
 # 📊 Super Store Sales Dashboard – Power BI Project
 
-![Dashboard Screenshot](Screenshot%202025-07-20%20at%201.12.43%20AM.png)
+<img width="1154" height="655" alt="Screenshot 2025-07-20 at 1 12 43 AM" src="https://github.com/user-attachments/assets/e7387ee8-a355-4041-a8a0-ea6dbb813695" />
+
 
 ## 📌 Project Overview
 
