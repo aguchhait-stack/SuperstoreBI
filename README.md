@@ -5,7 +5,6 @@ This repository contains a Power BI project built on a star-schema model derived
 
 
 🔗 Live Dashboard (Power BI Service):https://app.fabric.microsoft.com/links/sw5bBg-hlH?ctid=17dcb00c-6941-4050-b69e-bd7eb8951712&pbi_source=linkShare&bookmarkGuid=22bf2c5b-06eb-4c25-8b90-af21d9346ee5
-Click to View on Power BI Service
 
 🗂️ Data Model
 
