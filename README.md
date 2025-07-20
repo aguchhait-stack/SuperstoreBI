@@ -3,74 +3,71 @@
 <img width="1154" height="655" alt="Screenshot 2025-07-20 at 1 12 43 AM" src="https://github.com/user-attachments/assets/e7387ee8-a355-4041-a8a0-ea6dbb813695" />
 
 
-## 📌 Project Overview
+## 🗂️ Data Model
 
-This Power BI dashboard visualizes Superstore retail sales across multiple business dimensions. It provides decision-makers with an interactive way to monitor key performance indicators (KPIs), track profitability trends, evaluate shipping and payment behaviors, and analyze customer segments.
+The Power BI data model follows a star schema:
 
-The model is built using a **star schema** approach, enabling faster querying, modular design, and scalable reporting.
+### ✅ Fact Table
+- `fact_sales.csv`
 
----
+### ✅ Dimension Tables
+- `dim_customers.csv`
+- `dim_products.csv`
+- `dim_locations.csv`
+- `dim_dates.csv`
+- `dim_payments.csv`
 
-## 🔧 Tools & Technologies
-
-- Power BI Desktop
-- DAX (Data Analysis Expressions)
-- Power Query (M)
-- Star Schema Modeling
-- GitHub for versioning
-
----
-
-## 🧱 Data Model
-
-The model is centered around a single fact table `fact_sales` and multiple dimension tables:
-
-### 🟦 Fact Table:
-- **`fact_sales`**  
-  Contains transaction-level data including:
-  - `Sales`, `Profit`, `Quantity`, `Returns`
-  - `Customer ID`, `Product ID`, `Order Date`, `Ship Date`
-  - `Payment Mode`, `City`, `Order ID`
-
-### 🟨 Dimension Tables:
-- **`dim_customers`** – Customer ID, Name, Segment
-- **`dim_products`** – Product ID, Name, Category, Sub-Category
-- **`dim_locations`** – City, State, Region, Country
-- **`dim_payments`** – Payment Mode
-- **`dim_dates`** – Order and Ship Dates for time intelligence
-
-Each relationship is modeled as **one-to-many** (1:*), with **single-directional filtering** from dimensions to the fact table for optimized performance.
+Each table is cleaned and modeled for optimal DAX and visualization performance.
 
 ---
 
-## 📈 Dashboard Features
+## 🛠️ Python ETL Automation
 
-The final dashboard provides:
+A custom ETL pipeline is included via the script [`etl_superstore.py`](./etl_superstore.py), which automates:
 
-- ✅ **KPI Cards**: Total Sales, Total Quantity
-- 📊 **Charts**:
-  - Monthly Sales and Profit (YoY line charts)
-  - Sales by Product Category and Sub-Category
-  - Sales by Payment Mode and Segment (Donut charts)
-  - Sales by Ship Mode (Bar chart)
-- 🌍 **Geographic View**: US Sales by City using a Filled Map
-- 🎯 **Interactive Slicers**: Region selector for dynamic filtering
+- **Extraction** of CSVs from GitHub (via raw links)
+- **Transformation** of inconsistent or missing data
+- **Loading** cleaned data to a local directory
+
+### 🔃 Transformations Include:
+- `Order Date`, `Ship Date`: converted to datetime (`%Y-%m-%d`)
+- `Returns`: cleaned and filled with 0
+- `Quantity`: cast to integer
+- All other dimension tables are stripped, `#N/A` handled, and blank rows dropped
+
+### 📥 CSV Files Processed:
+- `fact_sales.csv`
+- `dim_customers.csv`
+- `dim_products.csv`
+- `dim_locations.csv`
+- `dim_dates.csv`
+- `dim_payments.csv`
+
+### 📍 Output Path:
+By default:
+```
+/Users/arijitguchhait/Desktop/Windows 11/Shared
+```
 
 ---
 
-## 📂 Dataset Source
+## ⏰ Automation with Cron (macOS)
 
-The dataset is adapted from the popular [Sample Superstore Dataset](https://community.tableau.com/s/question/0D54T00000CWeWRSA1/sample-superstore-sales-excelxls) and split into a star-schema format. CSV files are stored on GitHub for dynamic loading via URL or local folder.
+To schedule this ETL daily at 8 AM:
 
-Example CSVs:
-- [`fact_sales.csv`](https://raw.githubusercontent.com/aguchhait-stack/SuperstoreBI/main/fact_sales.csv)
-- [`dim_products.csv`](https://raw.githubusercontent.com/aguchhait-stack/SuperstoreBI/main/dim_products.csv)
-- [`dim_customers.csv`](https://raw.githubusercontent.com/aguchhait-stack/SuperstoreBI/main/dim_customers.csv)
+1. Open Terminal:
+```bash
+crontab -e
+```
+
+2. Add this line:
+```bash
+0 8 * * * /usr/bin/python3 /full/path/to/etl_superstore.py
+```
 
 ---
 
-## 🚀 How to Use
+## 📎 Credits
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/aguchhait-stack/SuperstoreBI.git
+Created by [Arijit Guchhait](https://github.com/aguchhait-stack)  
+Repo: [SuperstoreBI](https://github.com/aguchhait-stack/SuperstoreBI)
