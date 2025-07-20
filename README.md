@@ -2,7 +2,8 @@
 
 This repository contains a Power BI project built on a star-schema model derived from a global superstore sales dataset. It includes transformed fact and dimension tables, DAX measures, and visualizations focused on regional sales performance, shipping trends, and customer behavior.
 
-![Dashboard Screenshot](./Screenshot%202025-07-20%20at%201.12.43%E2%80%AFAM.png)
+<img width="1154" height="655" alt="Screenshot 2025-07-20 at 1 12 43 AM" src="https://github.com/user-attachments/assets/9607eff7-b01f-4061-b094-4a120e20c57e" />
+
 
 🔗 **Live Dashboard (Power BI Service)**:  
 [View on Power BI](https://app.fabric.microsoft.com/links/sw5bBg-hlH?ctid=17dcb00c-6941-4050-b69e-bd7eb8951712&pbi_source=linkShare&bookmarkGuid=22bf2c5b-06eb-4c25-8b90-af21d9346ee5)
