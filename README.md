@@ -61,7 +61,8 @@ Open Terminal:
 crontab -e
 Add this line:
 0 8 * * * /usr/bin/python3 /full/path/to/PowerBi_automation.py
-📎 Credits
 
-Created by Arijit Guchhait
-Repo: SuperstoreBI
+## 📎 Credits
+
+- **Author**: [Arijit Guchhait](https://github.com/aguchhait-stack)
+- **Repository**: [SuperstoreBI](https://github.com/aguchhait-stack/SuperstoreBI)
