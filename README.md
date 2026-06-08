@@ -42,8 +42,6 @@ The ETL pipeline is implemented in the Jupyter Notebook [`PowerBi_automation.ipy
 - `Quantity`: converted to integer after coercing errors
 - Other tables: stripped whitespace, replaced `#N/A` with `NaN`, dropped fully empty rows
 
-> ✅ You can run this notebook in JupyterLab, VS Code, or Google Colab to automate the full ETL process before loading data into Power BI.
-
 ---
 
 ## ⏰ Automation with Cron (macOS)
